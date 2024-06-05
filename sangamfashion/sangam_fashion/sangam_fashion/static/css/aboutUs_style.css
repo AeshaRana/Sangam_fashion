@@ -1,0 +1,33 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    padding-top: 50px;
+}
+
+.about-section {
+    padding: 80px 0;
+}
+
+.about-section img {
+    max-width: 200px;
+}
+
+.about-section h2 {
+    color: #007bff;
+}
+
+.about-section p {
+    color: #555;
+}
+
+.social-icons {
+    margin-top: 20px;
+  }
+  
+  .social-icon {
+    font-size: 24px;
+    margin-right: 20px; /* Increased margin for more space */
+    color: #007bff; /* Blue color for social icons */
+  }
+

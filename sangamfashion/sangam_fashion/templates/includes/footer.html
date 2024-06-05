@@ -1,0 +1,110 @@
+{% load static %}
+  
+  <!-- Footer  start-->
+  <footer class="text-white pt-5 pb-4 mt-5 custom-bg-dark">
+    <div class="container text-center text-md-left mt-5">
+        <div class="row text-center text-md-left mt-5">
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" style="font-size: 1.5rem;">
+                <h2 class="text-uppercase mb-4 font-weight-bold text-white mb-5" style="text-align: left;"><i
+                        class="fa-solid fa-cart-shopping fa-sm"></i>&nbsp;&nbsp;Sangam Fashion</h2>
+                        <p style="text-align: left;">Discover chic styles for every occasion in our curated collection. Elevate your wardrobe with effortless elegance and timeless pieces. Experience fashion at its finest with us today.</p>
+
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3" style="text-align: left;font-size: 1.5rem;">
+                <h2 class="text-uppercase mb-4 font-weight-bold text-white mb-5">Category</h2>
+                <p>
+                    <a href="{% url 'store' %}?men=1" class="text-white" style="text-decoration: none;"> Men</a>
+                </p>
+                <p>
+                    <a href="{% url 'store' %}?women=1" class="text-white" style="text-decoration: none;">Women</a>
+                </p>
+                <p>
+                    <a href="{% url 'store' %}?kids=1" class="text-white" style="text-decoration: none;">kids</a>
+                </p>
+
+
+            </div>
+
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3" style="text-align: left;font-size: 1.5rem;">
+                <h2 class="text-uppercase mb-4 font-weight-bold text-white mb-5">Useful links</h2>
+                <p>
+                    <a href="{% url 'edit_profile' %}" class="text-white" style="text-decoration: none;">Your Account</a>
+                </p>
+                <p>
+                    <a href="{% url 'aboutus' %}" class="text-white" style="text-decoration: none;">About us</a>
+                </p>
+                <p>
+                    <a href="{% url 'contact' %}" class="text-white" style="text-decoration: none;">Contact us</a>
+                </p>
+                {% comment %} <p>
+                    <a href="#" class="text-white" style="text-decoration: none;">Help</a>
+                </p> {% endcomment %}
+
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3" style="text-align: left;font-size: 1.5rem;">
+                <h2 class="text-uppercase mb-4 font-weight-bold text-white mb-5">Contact us</h2>
+                <p>
+                    <i class="fas fa-home mr-3 rotate-icon"></i>&nbsp; Bapunagar,Ahmedabad.
+                </p>
+                <p>
+                    <i class="fas fa-envelope mr-3"  style="text-transform: lowercase;"></i> &nbsp;sangamfashion19@gmail.com
+                </p>
+                <p>
+                    <i class="fas fa-phone mr-3"></i>&nbsp; +91 1234567890
+                </p>
+                <p>
+                    <i class="fas fa-print mr-3"></i>&nbsp; Bapunagar,Ahmedabad.
+                </p>
+            </div>
+        </div>
+
+        <hr class="mb-5 mt-5">
+        <div class="row align-items-center" style="font-size:1.5rem;">
+            <div class="col-md-4 col-lg-4">
+                <p style="text-align: left;">© 2023 All Rights Reserved by
+                    <a href="#" style="text-decoration: none;">
+                        <strong class="text-white"> Sangam Fashion</strong>
+                    </a>
+                </p>
+            </div>
+
+            <div class="col-md-4 col-lg-4">
+                <ul class="list-unstyled list-inline">
+
+                    <li class="list-inline-item rotate-icon">
+                        <a href="#"><img src="{% static 'img/payment-icon/paypal.png' %}" alt="visa"></a>
+                    </li>
+
+
+
+                </ul>
+
+            </div>
+
+            <div class="col-md-4 col-lg-4">
+                <div class="text-center text-md-right">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item rotate-icon">
+                            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i
+                                    class="fab fa-instagram"></i></a>
+                        </li>
+                        <li class="list-inline-item rotate-icon">
+                            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i
+                                    class="fab fa-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item rotate-icon">
+                            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i
+                                    class="fab fa-twitter"></i></a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</footer>
+<!-- Footer  end-->

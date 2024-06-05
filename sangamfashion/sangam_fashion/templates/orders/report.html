@@ -1,0 +1,66 @@
+<!-- report.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sangam Fashion Monthly Report</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+
+            background-color: #f2f2f2;
+            font-size: 2em;
+            color: rgb(6, 6, 72);
+        }
+        h1 {
+            color: rgb(6, 6, 72);
+            font-size: 32px;
+            text-align: center;
+        }
+        h2{
+            color: rgb(6, 6, 72);
+            font-size: 24px;
+            text-align: center;
+        }
+        td{
+            background-color: #f2f2f2;
+            font-size: 1.5em;
+            color: rgb(6, 6, 72);
+        }
+    </style>
+</head>
+<body>
+    <h1>Sangam Fashion</h1>
+    <h2>Monthly Report</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Order Number</th>
+                <th>User</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.order_number }}</td>
+                <td>{{ order.user }}</td>
+                <td>{{ order.order_total }}</td>
+                <td>{{ order.status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

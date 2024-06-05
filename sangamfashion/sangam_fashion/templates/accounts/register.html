@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>Registration form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <!-- External CSS libraries -->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon" >
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/login_regi.css' %}">
+
+</head>
+<body id="top">
+<div class="page_loader"></div>
+
+<!-- Login 17 start -->
+<div class="login-17">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-8 col-lg-7 col-md-12 bg-img">
+            
+                <div class="informeson">
+                    <div class="waviy">
+                      <span style="--i:1">W</span>
+                      <span style="--i:2">e</span>
+                      <span style="--i:3">l</span>
+                      <span style="--i:4">c</span>
+                      <span style="--i:5">o</span>
+                      <span style="--i:6">m</span>
+                      <span style="--i:7">e</span>
+                      <span class="color-yellow" style="--i:8">T</span>
+                      <span class="color-yellow" style="--i:9">o</span><br>
+                      <span style="--i:10">S</span>
+                      <span style="--i:11">A</span>
+                      <span style="--i:12">N</span>
+                      <span style="--i:13">G</span>
+                      <span style="--i:14">A</span>
+                      <span style="--i:15">M</span>
+                      <span style="--i:16">F</span>
+                      <span style="--i:17">A</span>
+                      <span style="--i:18">S</span>
+                      <span style="--i:19">H</span>
+                      <span style="--i:20">I</span>
+                      <span style="--i:21">O</span>
+                      <span style="--i:22">N</span>
+                    </div>
+                    <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five</p> -->
+                    <a href="{% url 'login' %}" class="btn-theme">Login</a>
+                </div>
+                <!-- <div class="social-box">
+                    <ul class="social-list clearfix">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Google</a></li>
+                        <li><a href="#">linkedin</a></li>
+                    </ul>
+                </div> -->
+            </div>
+            <div class="col-xl-4 col-lg-5 col-md-12 form-section">
+                <div class="login-inner-form ">
+                   
+                    <div class="details">
+                       
+                        <!-- {% include 'includes/alerts.html' %} -->
+                        {% if form.errors %}
+                        <div id="message" class="container">
+                            <div class="alert alert-danger" role="alert">
+                                <h4>
+                                    {% for field in form %}
+                                        {% for error in field.errors %}
+                                            {{ error }}
+                                            <br>
+                                        {% endfor %}
+                                    {% endfor %}
+                                    {% for error in form.non_field_errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </h4>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <h3>Create An Account</h3>
+                       
+       
+                            <!-- {{form.email.errors}} -->
+                            <!-- {{form.non_field_errors}} -->
+                            
+                        <br>
+                        <br>
+                    
+                        <form action="{% url 'register' %}" method="post">
+                            {% csrf_token %}
+
+                            
+                            <div class="form-group">
+                                {{form.first_name}}
+                                
+                            </div>
+                           
+                            <div class="form-group">
+                                {{form.last_name}}
+                                
+                            </div>
+                            <div class="form-group">
+                                {{form.phone_number}}
+                                
+                            </div>
+                            <div class="form-group">
+                                {{form.email}}
+                            </div>
+                            <div class="form-group">
+                                {{form.password}}
+                            </div>
+                            <div class="form-group">
+                               {{form.confirm_password}}
+                            </div>
+                            <div class="form-group clearfix">
+                                <button type="submit" class="btn-md btn-theme">Register</button>
+                            </div>
+
+                          
+                            <div class="clearfix"></div>
+                            <p class="none-2">Already a member?<a href="{% url 'login' %}" class="thembo">Login here</a></p>
+                          
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Login 17 end -->
+
+<!-- External JS libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/script.js"></script>
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/jquery.validate.min.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>
+<!-- Custom JS Script -->
+</body>
+
+</html>

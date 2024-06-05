@@ -1,0 +1,268 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content%}
+
+
+    <!-- Home section start -->
+
+    <section class="home" id="home">
+        <div class="swiper home-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide slide1" style="background: url({% static 'img/banner/Blue_Men.jpg' %}) no-repeat">
+                    <div class="content">
+                        <!-- <span>upto 50% off</span> -->
+                        <h3>Men's Fashion</h3>
+                     <a href="{% url 'store' %}?men=1" class="btn">Shop Now</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide2" style="background: url({% static 'img/banner/Orange_Women.jpg'%}) no-repeat">
+                    <div class="content">
+                        <!-- <span>upto 50% off</span> -->
+                        <h3>Women's Fashion</h3>
+                        <a href="{% url 'store' %}?women=1" class="btn">Shop Now</a>
+
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide3" style="background: url({% static 'img/banner/pink_child.jpg' %}) no-repeat">
+                    <div class="content">
+                        <!-- <span>upto 50% off</span> -->
+                        <h3>Kid's Fashion</h3>
+                     <a href="{% url 'store' %}?kids=1" class="btn">Shop Now</a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-container">
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Home section end -->
+
+    <!-- start section banner -->
+
+    <div class="container pt-5 pb-5 px-0 py-0 mt-5" data-aos="fade-right">
+        <div class="row">
+            <div class="col-md-4 mt-2">
+                <div class="single_banner">
+                    <img src="{% static 'img/Card/Men.jpg' %}" alt="banner-img" width="100%" height="100%">
+                    <div class="content">
+                        <a href="{% url 'store' %}?men=1">
+                            <h1>Men</h1>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mt-2">
+                <div class="single_banner">
+                    <img src="{% static 'img/Card/Women.jpg' %}" alt="banner-img" width="100%" height="100%">
+                    <div class="content">
+                        <a href="{% url 'store' %}?women=1">
+                            <h1>Women</h1>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mt-2">
+                <div class="single_banner">
+                    <img src="{% static 'img/Card/Kids.jpg' %}" alt="banner-img" width="100%" height="100%">
+                    <div class="content">
+                        <a href="{% url 'store' %}?kids=1">
+                            <h1>Kids</h1>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- End section banner -->
+
+
+    <!--  Start section shop header -->
+    <div class="container mt-5 mb-5">
+        <h1 class="heading" data-aos="fade-right">Exclusive <span>products</span></h1>
+        <div class="filter-buttons" data-aos="fade-right">
+           <div class="buttons active" data-filter="all">All</div> 
+            <div class="buttons" data-filter="arrivals">New arrivals</div>
+            <div class="buttons" data-filter="featured">Featured</div>
+            <div class="buttons" data-filter="special">Special offer</div>
+            <div class="buttons" data-filter="Best seller">Best seller</div>
+        </div>
+
+
+
+        <div class="row mt-5 m-2 box-container" data-aos="fade-right">
+            {% for product in products %}
+            <div class="box col-md-3 col-sm-6 mb-4" data-item="{{product.product_filter}}">
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="{{product.get_url}}">
+                            <img class="pic-1" src="{{product.images.url}}">
+
+                        </a>
+                        <ul class="social">
+                            <li><a href="{{product.get_url}}" data-tip="Quick View"><i class="fa fa-search"></i></a>
+                            </li>
+                            <li><a href="{% url 'add_wishlist' product.id %}" data-tip="Add to Wishlist"><i
+                                        class="fa fa-shopping-bag"></i></a></li>
+                            {% comment %} <li><a href="{% url 'add_cart' product.id %}" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li> {% endcomment %}
+                            <li><a href="{{product.get_url}}" data-tip="View Details"><i class="fa fa-eye"></i></a>
+                        </ul>
+                         <!-- <span class="product-new-label">Sale</span>
+                        <span class="product-discount-label">20%</span>  -->
+                    </div>
+
+                    <div class="product-content mt-5">
+                        <!-- <ul class="rating">
+                            <i
+                                class="fas fa-star{% if single_product.averageReview < 0.5 %}-o{% elif single_product.averageReview >= 0.5 and single_product.averageReview < 1 %}-half{% endif %}"></i>
+                            <i
+                                class="fas fa-star{% if single_product.averageReview < 1.5 %}-o{% elif single_product.averageReview >= 1.5 and single_product.averageReview < 2 %}-half{% endif %}"></i>
+                            <i
+                                class="fas fa-star{% if single_product.averageReview < 2.5 %}-o{% elif single_product.averageReview >= 2.5 and single_product.averageReview < 3 %}-half{% endif %}"></i>
+                            <i
+                                class="fas fa-star{% if single_product.averageReview < 3.5 %}-o{% elif single_product.averageReview >= 3.5 and single_product.averageReview < 4 %}-half{% endif %}"></i>
+                            <i
+                                class="fas fa-star{% if single_product.averageReview < 4.5 %}-o{% elif single_product.averageReview >= 4.5 and single_product.averageReview < 5 %}-half{% endif %}"></i>
+
+                            <span>({{ single_product.countReview }}) reviews </span> 
+                            <span>({{ single_product.averageReview|floatformat:"0.2" }}) </span> 
+                        </ul> -->
+                        <h3 class="title"><a href="{{product.get_url}}" style="text-decoration: none;">{{product.product_name}}</a></h3>
+                        <div class="price">&#8377;{{product.price}}
+                            {% comment %} <span>Rs.3000</span> {% endcomment %}
+                        </div>
+                        <a class="add-to-cart btn" href="{{product.get_url}}">View Product</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+
+
+
+
+    </div>
+    <!-- End section shop header -->
+
+    <!-- Deal section start -->
+
+
+    <section class="deal container-fluid" data-aos="fade-right">
+        <div id="banner">
+            <img src="{% static 'img/Card/Winter_Girl.jpg' %}" alt="Banner Image">
+            <div id="text-container">
+                <span>New Trending Arrival</span>
+                <h3>Winter Collection</h3>
+                <!-- <h4>Upto 10% Off</h4>
+                <button id="shop-now-btn">Shop Now</button> -->
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Deal section end -->
+
+
+    <!-- product slider section start -->
+
+    <section class="featured mb-5 mt-5" id="featured" data-aos="fade-right">
+        <h1 class="heading"><span>Featured</span> products</h1>
+        <div class="container mt-5">
+
+            <div class="swiper featured-slider">
+                <div class="swiper-wrapper ">
+                    {% for product in products %}
+                    <div class="swiper-slide slide ">
+                        <!-- <div class="col-md-3 col-sm-6"> -->
+                        <div class="product-grid" style="justify-content: left;">
+                            <div class="product-image">
+                                <a href="{{product.get_url}}">
+                                    <img class="pic-1" src="{{product.images.url}}">
+
+                                </a>
+                                <ul class="social">
+                                    <li><a href="{{product.get_url}}" data-tip="Quick View"><i
+                                                class="fa fa-search"></i></a></li>
+                                    <li><a href="{% url 'add_wishlist' product.id %}" data-tip="Add to Wishlist"><i
+                                                class="fa fa-shopping-bag"></i></a>
+                                    </li>
+                                    <li><a href="{{product.get_url}}" data-tip="View Product"><i
+                                        class="fa fa-search"></i></a></li>
+                                </ul>
+                                <!-- <span class="product-new-label">Sale</span>
+                                <span class="product-discount-label">20%</span> -->
+                            </div>
+
+                            <div class="product-content mt-5">
+                                <!-- <ul class="rating">
+                                    <li class="fa fa-star"></li>
+                                    <li class="fa fa-star"></li>
+                                    <li class="fa fa-star"></li>
+                                    <li class="fa fa-star"></li>
+                                    <li class="fa fa-star disable"></li>
+                                </ul> -->
+                                <h3 class="title"><a href="{{product.get_url}}" style="text-decoration: none;">{{product.product_name}}</a></h3>
+                                <div class="price">&#8377;{{product.price}}
+                                </div>
+                                <a class="add-to-cart btn btn-primary" href="{{product.get_url}}">View Product </a>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+
+                    </div>
+                    {% endfor %}
+
+                 
+                </div>
+                <div class="swiper-container">
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- product slider section end -->
+    <!-- section start -->
+
+    <section class="contact mb-5 mt-5" id="contact" style="background-color: #f9f9f9;" data-aos="fade-right">
+
+        <div class="icons-container mt-5">
+            <div class="icons pt-5" style="background: #fff;">
+                <i class="fa-solid fa-truck fa-beat"></i>
+                <h3>Free Delivery</h3>
+                <p>Experience the convenience of free delivery on every order, ensuring your items arrive at your doorstep without any additional cost.</p>
+            </div>
+            <div class="icons pt-5" style="background: #fff;">
+                <i class="fa-solid fa-indian-rupee-sign fa-beat"></i>
+                <h3>15 days return</h3>
+                <p>Enjoy peace of mind with our generous 15-day return policy, providing you with ample time to try out your purchase and return it hassle-free if needed.</p>
+
+            </div>
+            <div class="icons pt-5" style="background: #fff;">
+                <i class="fa-solid fa-headset fa-beat"></i>
+                <h3>24/7 Support</h3>
+                <p>Rest assured knowing that our dedicated support team is available around the clock, ready to assist you with any inquiries or concerns you may have, ensuring a seamless shopping experience.</p>
+
+            </div>
+        </div>
+
+
+    </section>
+    <!-- section end -->
+
+
+
+{% endblock %}

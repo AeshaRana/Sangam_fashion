@@ -1,0 +1,273 @@
+/** Login 17 start **/
+.login-17 .bg-img{
+    top: 0;
+    bottom: 0;
+    min-height: 100vh;
+    z-index: 999;
+    opacity: 1;
+    position: relative;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    padding: 30px 100px;
+    background: linear-gradient(132deg, #130f40, #130f40, #130f40);
+    background-size: 400% 400%;
+    animation: Gradient 15s ease infinite;
+    overflow: hidden;
+}
+
+.login-17 a {
+    text-decoration: none;
+}
+
+.login-17 .form-check-input:checked {
+    display: none;
+}
+
+.login-17 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Jost', sans-serif;
+}
+
+.login-17 .form-section{
+    top: 0;
+    bottom: 0;
+    opacity: 1;
+    min-height: 100vh;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 60px;
+}
+
+.login-inner-form{
+    width: 100%;
+}
+
+.login-17 .login-inner-form .forgot{
+    line-height: 50px;
+    float: right;
+    color: #535353;
+    font-size: 16px;
+}
+
+.login-17 .login-inner-form p{
+    color: #535353;
+    margin-bottom: 0;
+    font-size: 16px;
+}
+
+.login-17 .login-inner-form p a{
+    color: #535353;
+}
+
+.login-17 .login-inner-form .thembo{
+    margin-left: 4px;
+}
+
+.login-17 .login-inner-form h3 {
+    margin: 0 0 50px;
+    font-size: 30px;
+    font-weight: 400;
+    color: #040404;
+}
+
+.login-17 .waviy {
+    position: relative;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.login-17 .waviy span {
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    animation: waviy 1s infinite;
+    animation-delay: calc(.1s * var(--i));
+    font-family: 'Jost', sans-serif;
+}
+
+.login-17 .waviy span.color-yellow{
+    color: #eb4d4b;
+}
+
+@keyframes waviy {
+    0%,40%,100% {
+        transform: translateY(0)
+    }
+    20% {
+        transform: translateY(-20px)
+    }
+}
+
+.login-17 .login-inner-form .form-group {
+    margin-bottom: 40px;
+}
+
+.login-17 .login-inner-form .form-control {
+    width: 100%;
+    padding: 0 0 10px;
+    font-size: 16px;
+    font-weight: 400;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #e8e7e7;
+    outline: none;
+    color: #535353;
+    border-radius: 0;
+}
+
+.login-17 .login-inner-form .btn-md {
+    cursor: pointer;
+    padding: 13px 50px 12px 50px;
+    font-size: 17px;
+    font-weight: 400;
+    height: 50px;
+}
+
+.login-17 .login-inner-form input[type=checkbox], input[type=radio] {
+    margin-right: 3px;
+}
+
+.login-17 .login-inner-form button:focus {
+    outline: none;
+    outline: 0 auto -webkit-focus-ring-color;
+}
+
+.login-17 .login-inner-form .btn-theme.focus, .btn-theme:focus {
+    box-shadow: none;
+}
+
+.login-17 .login-inner-form .btn-theme {
+    background: #eb4d4b;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border: none;
+    color: #fff;
+    border-radius: 50px;
+}
+
+.login-17 .login-inner-form .btn-theme:hover {
+    background: #eb4d4b;
+}
+
+
+.login-17 .btn-theme {
+    border-radius: 50px;
+    padding: 12px 50px 11px 50px;
+    color: #eb4d4b;
+    border: solid 2px #eb4d4b;
+    font-size: 17px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    float: left;
+    margin-right: 5px;
+}
+
+.login-17 .btn-theme:hover{
+    color: #fff;
+    background: #eb4d4b;
+    text-decoration: none;
+}
+
+.login-17 .informeson{
+    max-width: 665px;
+}
+
+.login-17 .informeson p{
+    margin-bottom: 40px;
+    font-size: 17px;
+    color: #ebebeb;
+}
+
+.login-17 .social-box ul{
+    margin: 0;
+    padding: 0;
+}
+
+.login-17 .social-box .social-list li {
+    font-size: 16px;
+    display: inline-block;
+}
+
+.login-17 .social-box .social-list li a {
+    margin: 0 20px 2px 0;
+    font-size: 15px;
+    display: inline-block;
+    color: #ebebeb;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.login-17 .social-box .social-list li a:hover{
+    color: #fff;
+}
+
+.login-17 .social-box{
+    bottom: 30px;
+    position: absolute;
+    left: 100px;
+}
+
+.login-17 .logo{
+    top: 30px;
+    position: absolute;
+    left: 100px;
+}
+
+.login-17 .logo img{
+    height: 30px;
+}
+
+.login-17 .logo-2 {
+    display: none;
+    margin-bottom: 15px;
+}
+
+.login-17 .logo-2 img{
+    height: 30px;
+}
+
+.login-17 .none-2{
+    display: none;
+}
+
+/** MEDIA **/
+@media (max-width: 992px) {
+    .login-17 .bg-img{
+        display: none;
+    }
+
+    .login-17 .none-2{
+        display: inherit;
+    }
+
+    .login-17 .logo-2 {
+        display: inherit;
+    }
+
+    .login-17 .login-inner-form h3 {
+        font-size: 25px;
+        margin: 0 0 40px;
+    }
+
+    .login-17 .login-inner-form{
+        max-width: 450px;
+        padding: 60px 30px;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-17 .form-section {
+        padding: 30px 15px;
+    }
+
+    .login-17{
+        background: #fff3f3;
+    }
+}
+/** Login 17 end **/

@@ -1,0 +1,89 @@
+<!-- invoice_template.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <style>
+        h1 {
+            color: rgb(6, 6, 72);
+            font-size: 32px;
+            text-align: center;
+        }
+        .title {
+            color:rgb(6, 6, 72);
+            font-size: 19px;
+        }
+        p {
+            font-size: 16px;
+        }
+        h2 , h3 {
+            color: rgb(6, 6, 72);
+            font-size: 24px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 2px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: rgb(6, 6, 72);
+            color: white;
+            font-size: 2em;
+            text-align: center;
+        }
+        td{
+            /* background-color: rgb(6, 6, 72); */
+            color: black;
+            font-size: 1.7em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sangam Fashion Invoice</h1>
+    <h4 class="title">Thank You, {{ order.first_name }} {{ order.last_name }}, For Your Payment. Your Transaction Was Successful.</h4>
+    <p>Order Number: {{ order.order_number }}</p>
+    <p>Transaction ID: {{ payment.payment_id }}</p>
+    <p>Date: {{ order.created_at }}</p>
+    <p>Payment Status: {{ payment.status }}</p>
+    <p>Address: {{ order.full_address }}, {{ order.city }}, {{ order.state }}, {{ order.pincode }}</p>
+    <h2 class="h2">Bill Details</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order_product in order.orderproduct_set.all %}
+            <tr>
+                <td>{{ order_product.product.product_name }} (Quantity: {{ order_product.quantity }})</td>
+                <td>{{ order_product.product_price }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>Subtotal:</td>
+                <td>{{ order.order_total }}</td>
+            </tr>
+            <tr>
+                <td>Tax:</td>
+                <td>{{ order.tax }}</td>
+            </tr>
+            <tr>
+                <td>Grand Total:</td>
+                <td>{{ order.order_total }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Thank You For Shopping With Us! We Hope To See You Again Soon.</h3>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% autoescape off %}
+{% comment %} safest way to render html in email:-autoescape {% endcomment %}
+
+Hii {{user.first_name}},
+
+YOUR ORDER HAS BEEN RECEIVED
+
+Order Number : {{order.order_number}}
+
+
+
+{% endautoescape %}

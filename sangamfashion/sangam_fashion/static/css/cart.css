@@ -1,0 +1,782 @@
+/* .container {
+    margin-top: 50px;
+} */
+/* ---------------------------------------------------cart-page css------------------------------------------------------- */
+.cart-heading h1 {
+    color: #343a40;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.cart-item img:hover {
+    transform: scale(1.1);
+}
+
+.item-details {
+    flex-grow: 1;
+    padding: 0 15px;
+}
+
+.item-details h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.item-details p,
+.item-details .quantity-text {
+    font-size: 1.5rem;
+}
+
+.item-details div {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.item-details div:last-child {
+    margin-bottom: 0;
+}
+
+.quantity-form {
+    display: flex;
+    align-items: center;
+    width: 150px;
+    /* Increased width */
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.quantity-form .quantity-text {
+    margin-right: 5px;
+}
+
+.quantity-form select {
+    flex-grow: 1;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #495057;
+}
+
+.quantity-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.cross-btn {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.cross-btn:hover {
+    background-color: #c82333;
+}
+
+.summary {
+    background-color: #fff;
+    color: #343a40;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.summary h5 {
+    margin-top: 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.summary p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    justify-content: space-between;
+}
+
+
+.checkout-btn {
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.checkout-btn:hover {
+    background-color: #218838;
+}
+
+.item-details .links-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.edit-link,
+.wishlist-link {
+    /* text-decoration: none; */
+    color: #007bff;
+    font-size: 14px;
+    margin: 0 10px;
+    position: relative;
+}
+
+.wishlist-link::before {
+    content: "|";
+    margin: 0 5px;
+    color: #007bff;
+    position: absolute;
+    left: -5px;
+}
+
+
+/*--------------------------------------------------- checkout page css----------------------------------------------- */
+.checkout h1 {
+    font-size: 3rem;
+    font-weight: 650;
+}
+
+
+.form-control {
+    color: #000;
+    box-shadow: none;
+    height: 50px;
+    padding: 8px 15px;
+    font-size: 1.5rem;
+    font-weight: 550;
+    text-align: left;
+}
+
+.header h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.order_review,
+.billing-info {
+    /* background-color: #ffffff; */
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-top: 20px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.billing-info h4,
+.order_review h4 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.order_table th,
+.order_table td {
+    text-align: left;
+    font-size: 1.4rem;
+    padding: 15px;
+    vertical-align: middle;
+}
+
+.order_table thead {
+    background-color: #eb4d4b;
+    color: #ffffff;
+}
+
+.order_table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.payment_option label {
+    font-weight: normal;
+    color: #495057;
+    font-size: 1.4rem;
+}
+
+.payment-text {
+    color: #6c757d;
+    font-size: 1.2rem;
+}
+
+.btn-primary {
+    background-color: #eb4d4b;
+    border: none;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+}
+
+.btn-primary:hover {
+    background-color: #eb4d4b;
+}
+
+
+/*------------------------------------------- myaccount css -------------------------------------------------------------*/
+.myaccount-body li
+{
+    margin-bottom: 2rem;
+}
+.myaccount-body li a{
+    font-size:2rem;
+    text-align: left;
+    /* border: 1px solid black; */
+    border-bottom: 1px solid #efefef;
+    color: #000;
+ 
+}
+
+.active{
+    background-color: #eb4d4b;
+   
+}
+
+.personal-details form label{
+    font-size:1.7rem;
+    font-weight: 500;
+    margin-left:14px;
+}
+
+.personal-details .myaccount-edit span a{
+    font-size:2rem;
+   
+}
+
+/* ------------------------------------ myorders.css--------------------------------------------------------------------- */
+
+.table-responsive {
+    overflow-x: auto;
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .table th, .table td {
+    border: 1px solid #dee2e6;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .table tr td{
+    font-size: 2rem;
+  }
+
+  .table th {
+    /* background-color: #343a40;
+    color: white; */
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .order-status {
+    font-weight: bold;
+    color: #28a745;
+  }
+
+  .action a {
+    color: #fff;
+  }
+
+  .action a:hover {
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  /* ----------------------------------------wishlist css----------------------------------------------------------------- */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    border: 2px solid #e0e0e0;
+    padding: 15px;
+    text-align: center;
+}
+
+.table th {
+    background-color: #fbfdff;
+}
+
+.table td.product-thumbnail img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.badge {
+    background-color: #14812d;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-fill-out {
+    background-color: #eb4d4b;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.product-remove a {
+    color: #dc3545;
+    text-decoration: none;
+}
+
+.Product-Hedear{
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(3, 3, 61);
+}
+
+.Product-row1{
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(3, 3, 61);
+}
+
+.Product-row2{
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(3, 3, 61);
+}
+
+.Product-row3{
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(3, 3, 61);
+}
+
+.product-name a{
+    text-decoration: none;
+}
+.table td,
+.table th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table td {
+    border-right: none;
+}
+.product-remove .fa-solid{
+    color: rgb(3, 3, 61);
+}
+
+/*-------------------------------------- login-registration css start------------------------------------------ */
+
+.wrapper{
+    position: relative;
+    width: 450px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid rgba(15, 63, 168, 0.5);
+    border-radius: 20px;
+    background-color: rgba(225, 228, 235, 0.5);
+    /* -webkit-backdrop-filter: blur(20px); */
+    box-shadow: 0 0 30px rgba(2, 19, 66, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* transform: scale(0); */
+    transition: transform .5s ease, height .2s ease;
+}
+
+.wrapper.active{
+    height: 700px;
+}
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-box.login{
+    transition: none;
+    transform: translateX(-450px);
+}
+
+.wrapper .form-box.register{
+    position: absolute;
+    transition: none;
+    transform: translateX(450px);
+}
+
+.wrapper.active .form-box.register{
+    transition: transform .18 ease;
+    transform: translateX(0);
+}
+
+.wrapper .icon-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.form-box h2{
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+    animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.2);
+    }
+  }
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+}
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 550;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+}
+
+.remember-forgot {
+    font-size: .9em;
+    color: #162938;
+    font-weight: 600;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input{
+    accent-color: #162938;
+    margin-right: 3px;
+}
+.remember-forgot a{
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600;
+}
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+.btn{
+    width: 100%;
+    height: 45px;
+    background: #eb4d4b;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.login-register{
+    font-size: .9em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+.login-register p a {
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent; 
+    transition: border-bottom 0.3s ease; 
+}
+
+.login-register p a:hover {
+    border-bottom: 1px solid #162938; 
+}
+
+.wrapper .form-box.register .input-box {
+    width: calc(100% - 50px); 
+    height: 50px;
+    margin: 30px 20px; 
+    position: relative;
+}
+
+.wrapper .form-box.register .input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 550;
+    padding: 0 35px 0 5px;
+    margin-bottom: 5px; 
+}
+
+.wrapper .form-box.register .input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.wrapper .form-box.register .input-box input:focus~label,
+.wrapper .form-box.register .input-box input:valid~label{
+    top: -5px;
+}
+
+.wrapper .form-box.register .remember-forgot {
+    font-size: .9em;
+    color: #162938;
+    font-weight: 600;
+    margin: 15px 20px; 
+    text-align: center; 
+}
+
+.wrapper .form-box.register .remember-forgot label input {
+    accent-color: #162938;
+    margin-right: 3px;
+}
+
+.wrapper .form-box.register .remember-forgot a {
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.wrapper .form-box.register .remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.wrapper .form-box.register .btn{
+    width: calc(100% - 40px);
+    height: 45px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.wrapper .form-box.register .login-register{
+    font-size: .9em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+.wrapper .form-box.register .login-register p a {
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent; 
+    transition: border-bottom 0.3s ease; }
+
+.wrapper .form-box.register .login-register p a:hover {
+    border-bottom: 1px solid #162938; 
+}
+
+
+
+
+
+
+/*-------------------------------------- login-registration css end------------------------------------------ */
+
+
+/* ---------------------------------------------contact us css------------------------------------------------------ */
+.contact .icons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+  }
+  .contact .icons-container .icons {
+    padding: 2rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  .contact .icons-container .icons i {
+    font-size: 2.5rem;
+    height: 6rem;
+    width: 6rem;
+    line-height: 6rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+  }
+  .contact .icons-container .icons h3 {
+    font-size: 2.2rem;
+    padding: 1rem 0;
+    color: #130f40;
+  }
+  .contact .icons-container .icons p {
+    font-size: 1.5rem;
+    line-height: 2;
+    color: #666;
+  }
+  .contact .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .contact .row form {
+    flex: 1 1 42rem;
+    padding: 2rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+  }
+  .contact .row form h3 {
+    font-size: 3rem;
+    padding-bottom: 1rem;
+    color: #130f40;
+  }
+  .contact .row form .inputBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .contact .row form .inputBox input {
+    width: 49%;
+  }
+  .contact .row form .inputBox input,
+  .contact .row form textarea {
+    border: 0.1rem solid rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    padding: 1rem 1.2rem;
+    font-size: 1.6rem;
+    color: #130f40;
+    text-transform: none;
+    margin: 0.7rem 0;
+  }
+  .contact .row form textarea {
+    height: 15rem;
+    resize: none;
+    width: 100%;
+  }
+  .contact .row .map {
+    flex: 1 1 42rem;
+    width: 100%;
+    padding: 2rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+  }

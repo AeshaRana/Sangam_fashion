@@ -1,0 +1,324 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+
+
+<div class="bb"><!--try fun gradient colour-->
+  <!--main content-->
+  <div class="main-section">
+    <div class="container">
+      <div class="row">
+        <!-- Product Section -->
+        <div class="col-lg-9">
+          <div class="row align-items-center mb-4 pb-1">
+            <!-- Sorting Dropdown -->
+            <div class="col-12">
+              <div class="product_header d-md-flex justify-content-center">
+                <div class="product_header_left ">
+                  <div class="custom_select">
+                    <!-- Sorting Dropdown -->
+                    <select class="form-control form-control-sm">
+                      <option value="order">Default sorting</option>
+                      <option value="popularity">Sort by popularity</option>
+                      <option value="date">Sort by newness</option>
+                      <option value="price">Sort by price: low to high</option>
+                      <option value="price-desc">Sort by price: high to low</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="product_header_right">
+                              <div class="custom_select">
+                                  <select class="form-control form-control-sm first_null not_chosen">
+                                      <option value="">Showing</option>
+                                      <option value="9">9</option>
+                                      <option value="12">12</option>
+                                      <option value="18">18</option>
+                                  </select>
+                              </div>
+                          </div> -->
+          <!-- </div>
+        </div>
+      </div>row align -->
+
+          <!--Shop/product container grid-->
+
+          <!-- Product Grid -->
+          <div class="row shop_section">
+            <!-- Product Cards -->
+            <!-- Repeat this block for each product -->
+            {% if products %}
+            {% for item in products%}
+            <div class="col-lg-4 g-5"><!--first product-->
+              <div class="card">
+                <!-- Product Image -->
+                <div class="text-center">
+                  <a href="{{item.get_url}}"><img src="{{item.images.url}}" alt="image"></a>
+                </div>
+                <!-- Product Details -->
+                <div class="card-body bg-primary">
+                  <!-- Product Title -->
+                  <h6 class="card-title1">Brand Name:{{item.brand}}</h6>
+                  <h2 class="card-title"><a href="{{item.get_url}}">{{item.product_name}}</a></h2>
+                  <hr>
+                  <!-- Price and Rating -->
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <p class="price">&#8377; {{item.price}}</p>
+                      <!-- Stars for Rating -->
+                      <!-- <i class="bi bi-star-fill starb"></i>
+                      <i class="bi bi-star-fill starb"></i>
+                      <i class="bi bi-star-fill starb"></i>
+                      <i class="bi bi-star starb"></i> -->
+                      <!-- Add more stars if needed -->
+                    </div>
+                    <!-- Icons for Wishlist and Cart -->
+                    <div>
+                      <a href="{% url 'add_wishlist' item.id %}"><i class="bi bi-bag-heart-fill icon1"></i></a>
+                      <a href="{{ item.get_url }}"><i class="bi bi-eye-fill icon1"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor%}
+            {% else %}
+            <div class="">
+              <div class="">
+                <div class="text-center">
+                  <h2 class="text-center">No result found ,please try again later</h2>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+
+          </div><!--shop-section-->
+
+          {% comment %} pagination {% endcomment %}
+        <!-- <div class="container mt-5">
+            <div class="pagination-container">
+              {% if products.has_other_pages %}
+              <ul class="pagination">
+                {% if products.has_previous %}
+                <li class="page-item "><a href="?page={{ products.previous_page_number }}{% if category_slug %}&category_slug={{ category_slug }}{% endif %}{% if men_checked %}&men=1{% endif %}{% if women_checked %}&women=1{% endif %}{% if kids_checked %}&kids=1{% endif %}" class="page-link">&laquo;</span></a></li>
+                {% else %}
+                <li class="page-item disabled"><a href="" class="page-link"><span
+                      class="pagination-arrow">&laquo;</span></a></li>
+                {% endif %}
+
+
+                {% for i in products.paginator.page_range %}
+                {% if products.number == i %}
+                <li class="page-item"><a href="?page={{i}}" class="page-link">{{i}}</a></li>
+                {% else %}
+                <li class="page-item"><a href="?page={{i}}{% if category_slug %}&category_slug={{ category_slug }}{% endif %}{% if men_checked %}&men=1{% endif %}{% if women_checked %}&women=1{% endif %}{% if kids_checked %}&kids=1{% endif %}" class="page-link">{{i}}</a></li>
+                {%endif%}
+                {% endfor%}
+
+
+             
+
+                {% if products.has_next %}
+                <li class="page-item"><a href="?page={{products.next_page_number}}{% if category_slug %}&category_slug={{ category_slug }}{% endif %}{% if men_checked %}&men=1{% endif %}{% if women_checked %}&women=1{% endif %}{% if kids_checked %}&kids=1{% endif %}" class="page-link"><span
+                      class="pagination-arrow">&raquo;</span></a></li>
+                {% else %}
+                <li class="page-item disabled"><a href="#" class="page-link"><span
+                      class="pagination-arrow">&raquo;</span></a></li>
+                {% endif%}
+
+                
+              </ul>
+              {% endif %}
+            </div>
+          </div> -->
+        <div class="container mt-5">
+            <div class="pagination-container">
+                {% if products.has_other_pages %}
+                <ul class="pagination">
+                    {% if products.has_previous %}
+                    <li class="page-item"><a href="?page={{ products.previous_page_number }}{% if category_slug %}&category_slug={{ category_slug }}{% endif %}{% if men_checked %}&men=1{% endif %}{% if women_checked %}&women=1{% endif %}{% if kids_checked %}&kids=1{% endif %}" class="page-link">&laquo; </a></li>
+                    {% else %}
+                    <li class="page-item disabled"><a herf="# "class="page-link">&laquo; </a></li>
+                    {% endif %}
+        
+                    {% for i in products.paginator.page_range %}
+                    {% if products.number == i %}
+                    <li class="page-item "><span class="page-link">{{ i }}</span></li>
+                    {% else %}
+                    <li class="page-item"><a href="?page={{ i }}{% if category_slug %}&category_slug={{ category_slug }}{% endif %}{% if men_checked %}&men=1{% endif %}{% if women_checked %}&women=1{% endif %}{% if kids_checked %}&kids=1{% endif %}" class="page-link">{{ i }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+        
+                    {% if products.has_next %}
+                    <li class="page-item"><a href="?page={{ products.next_page_number }}{% if category_slug %}&category_slug={{ category_slug }}{% endif %}{% if men_checked %}&men=1{% endif %}{% if women_checked %}&women=1{% endif %}{% if kids_checked %}&kids=1{% endif %}" class="page-link"> &raquo;</a></li>
+                    {% else %}
+                    <li class="page-item disabled"><a href="#" class="page-link"> &raquo;</a></li>
+                    {% endif %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+        
+        
+        
+
+
+
+
+        </div><!--col lg 9-->
+
+
+
+
+        <!--category section col-lg-3-->
+
+        <div class=" order-first  col-lg-3  mt-4 pt-7 mt-lg-0 pt-lg-0">
+
+          <p>
+            <button class="btn btn-primary  d-lg-none " type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              <i class="fas fa-bars"></i>
+            </button>
+
+
+          <div class="collapse category_section d-lg-block " id="collapseExample">
+
+
+            <div class="sidebar">
+              <div class="widget">
+                <h5 class="widget_title">Categories</h5>
+                <ul class="widget_categories">
+                  <!--<div class="container">-->
+                  <div class="format">
+                    {% comment %} <li><i class="bi bi-caret-right-fill arrow1"></i><a href="{% url 'store' %}"><span
+                          class="categories_name">All Products</span><span class="categories_num"></span></a>
+                    </li> {% endcomment %}
+
+                    {% for category in links %}
+                    <li><i class="bi bi-caret-right-fill arrow1"></i>
+
+                      <a href="{{category.get_url}}"><span
+                          class="categories_name">{{category.category_name}}</span><span
+                          class="categories_num"></span></a>
+
+                    </li>
+
+                    {% endfor %}
+                   
+
+                  </div>
+              </div>
+              </ul>
+            </div>
+            <div class="widget">
+              <h5 class="widget_title">Filter</h5>
+              <div class="filter_price">
+                <div id="price_filter" data-min="0" data-max="6000" data-min-value="0" data-max-value="500"
+                  data-price-sign="Rs" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                  <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 10%; width: 50%;">
+                  </div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"
+                    style="left: 10%;"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"
+                    style="left: 60%;"></span>
+                </div>
+                <div class="price_range">
+                  <span class="price_1">Price </span><span id="flt_price">Rs:400 to 4000</span>
+                  <input type="hidden" id="price_first">
+                  <input type="hidden" id="price_second">
+                  <div class="submit">
+                    <button id="styledButton">Apply</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% comment %} <div class="widget">
+              <h5 class="widget_title">Brand</h5>
+              <ul class="list_brand">
+                <li>
+                  <div class="custome-checkbox">
+                    <input class="form-check-input" type="checkbox" name="checkbox" id="Aurelia" value="">
+                    <label class="form-check-label" for="Aurelia"><span>Aurelia</span></label>
+                  </div>
+                </li>
+                <li>
+                  <div class="custome-checkbox">
+                    <input class="form-check-input" type="checkbox" name="checkbox" id="BIBA" value="">
+                    <label class="form-check-label" for="BIBA"><span>BIBA</span></label>
+                  </div>
+                </li>
+                <li>
+                  <div class="custome-checkbox">
+                    <input class="form-check-input" type="checkbox" name="checkbox" id="KOTTY" value="">
+                    <label class="form-check-label" for="KOTTY"><span>KOTTY</span></label>
+                  </div>
+                </li>
+                <li>
+                  <div class="custome-checkbox">
+                    <input class="form-check-input" type="checkbox" name="checkbox" id="FIORRA" value="">
+                    <label class="form-check-label" for="FIORRA"><span>FIORRA</span></label>
+                  </div>
+                </li>
+                <li>
+                  <div class="custome-checkbox">
+                    <input class="form-check-input" type="checkbox" name="checkbox" id="Selvia" value="">
+                    <label class="form-check-label" for="Selvia"><span>Selvia</span></label>
+                  </div>
+                </li>
+              </ul>
+            </div> {% endcomment %}
+            {% comment %} <div class="widget">
+              <h5 class="widget_title">Size</h5>
+              <div class="product_size_switch">
+                <span>xs</span>
+                <span>s</span>
+                <span>m</span>
+                <span>l</span>
+                <span>xl</span>
+                <span>2xl</span>
+                <span>3xl</span>
+              </div>
+            </div> {% endcomment %}
+            {% comment %} <div class="widget">
+              <h5 class="widget_title">Color</h5>
+              <div class="product_color_switch">
+                <span data-color="#87554B" style="background-color: rgb(135, 85, 75);"></span>
+                <span data-color="#333333" style="background-color: rgb(51, 51, 51);"></span>
+                <span data-color="#DA323F" style="background-color: rgb(218, 50, 63);"></span>
+                <span data-color="#2F366C" style="background-color: rgb(47, 54, 108);"></span>
+                <span data-color="#B5B6BB" style="background-color: rgb(181, 182, 187);"></span>
+                <span data-color="#B9C2DF" style="background-color: rgb(185, 194, 223);"></span>
+                <span data-color="#5FB7D4" style="background-color: rgb(95, 183, 212);"></span>
+                <span data-color="#2F366C" style="background-color: rgb(47, 54, 108);"></span>
+              </div>
+            </div> {% endcomment %}
+
+            <div class="widget">
+              <div class="shop_banner">
+                <div class="banner_img overlay_bg_20">
+                  <img src="{% static 'img/banner/sidebar_banner_img.jpg' %}" alt="sidebar_banner_img">
+                </div>
+                <div class="shop_bn_content2 text_white">
+                  <h5 class="text-uppercase shop_subtitle">New Collection</h5>
+                  <h3 class="text-uppercase shop_title">Sale 30% Off</h3>
+                  <a href="#" class="btn1 btn-white rounded-0 btn-sm text-uppercase">Shop Now</a>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div><!--collapse categories section-->
+          </p><!--toggler effect-->
+        </div><!--start categories-->
+      </div><!--order-first-->
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

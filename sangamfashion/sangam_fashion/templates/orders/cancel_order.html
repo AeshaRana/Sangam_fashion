@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center mt-10"> <!-- Added mt-5 class here -->
+        <div class="col-md-8">
+            <div class="card shadow-lg p-5" style="margin-top:100px;">
+                <h2 class="text-center mb-4 font-weight-bold" style="font-size: 4rem;font-weight:600">Cancel Order</h2>
+                <p class="lead text-center mb-4" style="font-size: 2rem; font-weight: bold;">You are about to cancel the order:</p>
+                <table class="table mb-4 shadow-0">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Order Number:</th>
+                            <td>{{ order.order_number }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Order Total:</th>
+                            <td>Rs: {{ order.order_total }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Status:</th>
+                            <td>{{ order.status }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <p class="lead text-center mb-4" style="font-size: 2rem; font-weight: bold;color:red;">Please confirm the cancellation</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-danger btn-lg">Confirm Cancellation</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

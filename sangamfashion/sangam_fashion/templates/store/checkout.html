@@ -1,0 +1,139 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+
+
+<!-- checkout start -->
+
+<div class="container" style="margin-top: 10rem;">
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-12 checkout">
+            <h1>Checkout</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="billing-info">
+                <div class="header mb-5">
+                    <h4>Billing detalis</h4>
+                </div>
+                <form action="{%url 'place_order' %}" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="first_name" placeholder="Enter First Name:" value="{{ user_profile.user.first_name }}"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="last_name" placeholder="Enter Last Name:"value="{{ user_profile.user.last_name }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="tel" class="form-control" name="phone" placeholder="Enter Mobile No:" value="{{ user_profile.user.phone_number }}" required maxlength="10">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" name="email" placeholder="Enter Email:" value="{{ user_profile.user.email }}" style="text-transform: lowercase;" required>
+                    </div>
+                    <!-- <div class="mb-3">
+                        <input type="text" class="form-control" name="company-name" placeholder="Enter Company Name:">
+                    </div> -->
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="address_line_1" placeholder="Enter Address:" value="{{ user_profile.address_line_1 }}"  required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="address_line_2" placeholder="Enter Address line2:" value="{{ user_profile.address_line_2 }}">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="city" placeholder="Enter city:"  value="{{ user_profile.city }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="state" placeholder="Enter State:" value="{{ user_profile.state }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="pincode" placeholder="Enter Pincode:" value="{{ user_profile.pincode }}" maxlength="6" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6)" required>
+                    </div>
+                    
+
+                
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="order_review">
+                <div class="heading_s1">
+                    <h4>Your Orders</h4>
+                </div>
+                <div class="table-responsive order_table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="color: black;">Product</th>
+                                <th style="color: black;">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for cart_item in cart_items %}
+                            <tr>
+                                <td>{{cart_item.product.product_name}} <span class="product-qty">({{cart_item.quantity}})</span></td>
+                                <td>&#8377;{{cart_item.product.price}}</td>
+                            </tr>
+                           
+                            {% endfor%}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>SubTotal</th>
+                                <td class="product-subtotal">&#8377;{{total}}</td>
+                            </tr>
+                            <tr>
+                                <th>Tax</th>
+                                <td class="product-subtotal">&#8377;{{tax}}</td>
+                            </tr>
+                            <tr>
+                                <th>Shipping</th>
+                                <td>Free Shipping</td>
+                            </tr>
+                            <tr>
+                                <th>Total</th>
+                                <td class="product-subtotal">&#8377;{{grand_total}}</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="payment_method mt-5 mb-4">
+                    <div class="heading_s1">
+                        <h4>Payment</h4>
+                    </div>
+                    <div class="payment_option">
+                         <div class="custom-control custom-radio">
+                            {% comment %} <input class="custom-control-input" required="" type="radio" name="payment_option"
+                                id="exampleRadios3" value="option3" checked="">
+                            <label class="custom-control-label" for="exampleRadios3"><b>Cash on delivery
+                                </b></label>
+                            <p data-method="option3" class="payment-text">There are many variations of passages of
+                                Lorem Ipsum available, but the majority have suffered alteration.</p> {% endcomment %}
+                        </div> 
+                        <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" name="payment_option" id="exampleRadios5"
+                                value="option5">
+                            <label class="custom-control-label" for="exampleRadios5">Paypal</label>
+                            <p data-method="option5" class="payment-text">Pay via PayPal; you can pay with your
+                                credit card if you don't have a PayPal account.</p>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" name="submit" class="btn btn-primary btn-block">Place Order</button>
+                <a href="{% url 'store' %}" class="btn btn-primary btn-block" >Continue shopping</a>
+            </form>
+            </div>
+      
+        </div>
+
+
+    </div>
+</div>
+
+<!-- checkout end -->
+
+
+
+
+{% endblock %}

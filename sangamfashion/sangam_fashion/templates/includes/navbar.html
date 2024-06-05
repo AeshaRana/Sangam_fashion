@@ -1,0 +1,177 @@
+{% load static %}
+     <!-- navbar start -->
+
+     <nav class="navbar navbar-expand-lg custom-bg-dark fixed-top pb-0 pt-0" id="nav">
+
+        <!-- -->
+        <div class="container">
+
+            <a class="navbar-brand logo" href="{% url 'home' %}">
+                <img src="{% static 'img/logo/logo_sangam1.png' %}" height="50px" width="138px">
+                </span></a>
+
+            <button class="navbar-toggler" id="menu-btn" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
+                <ul class="navbar-nav ">
+                    <!-- me-auto mb-2 mb-lg-0 -->
+
+                    <li class="nav-item dropdown mt-2 ">
+                        <a class="nav-link dropdown-toggle h5" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+                            Men
+                        </a>
+                        <ul class="dropdown-menu transparent-dropdownnew " id="drop-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'store' %}?men=1">All Product</a></li>
+                           {% for category in links%}
+                            <li><a class="dropdown-item" href="{{category.get_url}}?men=1">{{category.category_name}}</a></li>
+                            {% endfor %}
+                          
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown mt-2 ">
+                        <a class="nav-link dropdown-toggle h5" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+                            Women
+                        </a>
+                        <ul class="dropdown-menu transparent-dropdownnew " id="drop-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="{% url 'store' %}?women=1">All Product</a></li> 
+                           {% for category in links%}
+                            <li><a class="dropdown-item" href="{{category.get_url}}?women=1">{{category.category_name}}</a></li>
+                            {% endfor %}
+                          
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown mt-2">
+                        <a class="nav-link dropdown-toggle h5" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+                            Kids
+                        </a>
+                        <ul class="dropdown-menu transparent-dropdownnew " id="drop-menu" aria-labelledby="navbarDropdown">
+                           <li><a class="dropdown-item" href="{% url 'store' %}?kids=1">All Product</a></li>
+                           {% for category in links%}
+                            <li><a class="dropdown-item" href="{{category.get_url}}?kids=1">{{category.category_name}}</a></li>
+                            {% endfor %}
+                          
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown mt-2 hide-nav">
+                        <a href="myaccount.html" class="nav-link h5 "> Profile</a>
+
+                    </li>
+                    <li class="nav-item dropdown mt-2 hide-nav">
+                        <a href="mywishlist.html" class="nav-link h5"> Wishlist</a>
+
+                    </li>
+                    <li class="nav-item dropdown mt-2 hide-nav">
+                        <a href="cart.html" class="nav-link h5">Cart</a>
+
+                    </li>
+                    <li class="nav-item dropdown mt-2 hide-nav">
+                        <a class="nav-link h5 btn btn-sm" id="search-btn1">Search </a>
+
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start icons">
+                <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+
+
+                    <li class="nav-item px-3 icon-hide ">
+                        <div id="search-btn" class="fa-solid fa-search fa-xl"> </div>
+                    </li>
+                    <li class="nav-item px-3 icon-hide">
+                        <a href="{% url 'cart'%}" style="position: relative; display: inline-block;">
+                            <span class="badge-notify">{{cart_count}}</span>
+                            <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                            <!-- <span class="cart-container badge.notify">{{cart_count}}</span> -->
+                        </a>
+                        
+                    </li>
+                    <li class="nav-item px-3 icon-hide ">
+                        <a href="{% url 'wishlist' %}">
+                            <i class="fa-solid fa-heart fa-xl"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item px-3 icon-hide   " >
+                        <a href="#" id="dropdownUser1" data-bs-toggle="" aria-expanded="false">
+                            <i class="fa fa-circle-user fa-xl"></i>
+                        </a>
+                        {% if user.id is None %}
+
+                        <ul class="dropdown-menu text-small transparent-dropdownnew" id="drop-menu4"
+                            aria-labelledby="dropdownUser1">
+                            <li>
+                                <a class="dropdown-item" href="{% url 'login'%}">sign
+                                    in</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'register' %}">sign up</a>
+                            </li>
+                            {% comment %} <li>
+                                <a class="dropdown-item" href="myaccount.html">My Profile</a>
+                            </li> {% endcomment %}
+                            <li>
+                                <hr class="dropdown-divider bg-white">
+                            </li>
+                            {% comment %} <li><a class="dropdown-item" href="{% url 'logout' %}">Sign out</a></li> {% endcomment %}
+
+                        </ul>
+                        {% else %}
+                        <ul class="dropdown-menu text-small transparent-dropdownnew" id="drop-menu4"
+                        aria-labelledby="dropdownUser1">
+                        {% comment %} <li>
+                            <a class="dropdown-item" href="{% url 'login'%}">sign
+                                in</a>
+                        </li> {% endcomment %}
+                        {% comment %} <li>
+                            <a class="dropdown-item" href="{% url 'register' %}">sign up</a>
+                        </li> {% endcomment %}
+                        <li>
+                            <a class="dropdown-item" href="{% url 'dashboard' %}">My Profile</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider bg-white">
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+
+                    </ul>
+
+                    {% endif %}
+
+                    </li>
+
+                    <li class="nav-item px-3 icon-hide ">
+                        <a href="{% url 'contact' %}">
+                            <i class="fa-solid fa-phone fa-xl"></i>
+                        </a>
+                        <ul class="dropdown-menu text-small transparent-dropdownnew" id="drop-menu4"
+                        aria-labelledby="dropdownUser1">
+                        <li>
+                            <a class="dropdown-item" href="">+91 1234567890
+                               </a>
+                        </li>
+                    </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <form action="{% url 'search' %}" class="search-form" method='get'>
+            <input type="search" name="keyword" placeholder="search here..." id="search-box" />
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+    </nav>
+
+    <!-- navbar end -->

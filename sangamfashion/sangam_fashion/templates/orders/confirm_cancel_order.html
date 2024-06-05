@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5" style="margin-bottom:100px" >
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card p-5 shadow-lg" style="margin-top:100px;">
+                <h1 class="text-center mb-4" style="font-size: 3.5rem;font-weight:550">Order Cancelled Successfully</h1>
+                <p class="lead text-center mb-4" style="font-size: 2rem;">Your order has been cancelled successfully.</p>
+                
+                <p class="text-center" style="font-size: 1.8rem;">We hope to see you again soon!</p>
+                <div class="text-center">
+                    <a href="{% url 'home' %}" class="btn btn-primary btn-lg mt-4 px-5" style="font-size: 2rem;">Return to Home page</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

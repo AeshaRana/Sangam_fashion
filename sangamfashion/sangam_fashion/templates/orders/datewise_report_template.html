@@ -1,0 +1,80 @@
+<!-- datewise_report_template.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datewise Report</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+
+            background-color: #f2f2f2;
+            font-size: 2em;
+            color: rgb(6, 6, 72);
+        }
+        h1 {
+            color: rgb(6, 6, 72);
+            font-size: 32px;
+            text-align: center;
+        }
+        h2{
+            color: rgb(6, 6, 72);
+            font-size: 24px;
+            text-align: center;
+        }
+        td{
+            background-color: #f2f2f2;
+            font-size: 1.5em;
+            color: rgb(6, 6, 72);
+        }
+    </style>
+</head>
+<body>
+    <h1>Sangam Fashion</h1>
+    <h2>Datewise Report for {{ date }}</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Order Number</th>
+                <th>Name</th>
+                <!-- <th>Email</th>
+                <th>City</th>
+                <th>State</th> -->
+                <th>Order Total</th>
+                <th>Tax</th>
+                <th>Status</th>
+                <th>Date</th>
+                <!-- Add more table headers if needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.order_number }}</td>
+                <td>{{order.first_name}}</td>
+                <!-- <td>{{order.last_name}}</td> -->
+                <!-- <td>{{order.email}}</td> -->
+                <!-- <td>{{order.city}}</td> -->
+                <!-- <td>{{order.state }}</td> -->
+                <td>{{order.order_total}}</td>
+                <td>{{order.tax}}</td>
+                <td>{{order.status}}</td>
+                <td>{{order.created_at}}</td>
+                <!-- Add more table cells with order details -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{% extends 'base.html' %} 
+
+<!--order complete page-->
+
+{% block content %}
+
+<div class="container" style="max-width: 600px; margin: 50px auto; background-color:#CCCCCC; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+
+    <p style="font-size: 18px;"><strong>Name :</strong>{{order.full_name}}</p>
+    <p style="font-size: 18px;"><strong> order number:</strong>#{{order.order_number}}</p>
+    <p style="font-size: 18px;"><strong>Transaction ID: </strong>{{order.payment.payment_id}}</p>
+    <p style="font-size: 18px;"><strong> Date:</strong>{{order.created_at}}</p>
+    <p style="font-size: 18px;"><strong>Status:</strong>{{order.payment.status}}</p>
+    <p style="font-size: 18px; margin-bottom: 20px;"><strong>Your address:</strong>{{order.full_address}},{{order.city}},{{order.state}},India</p>
+
+    <!-- <center><h2 style="font-size: 29px;margin-top: 20px;margin-bottom: 20px;"><u><b>Bill Details</b></u></h2></center> -->
+    <!-- <div style="text-align: center; margin-bottom: 20px;">
+        <img src="your_logo.png" alt="Your Logo" style="max-width: 200px; height: auto;">
+    </div> -->
+    <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th style="background-color: #4CAF50; color: white; padding: 12px; border-bottom: 1px solid #ddd; text-align: left; font-size: 20px;">Products</th>
+                <th style="background-color: #4CAF50; color: white; padding: 12px; border-bottom: 1px solid #ddd; text-align: left; font-size: 20px;">Quantity</th>
+                <th style="background-color: #4CAF50; color: white; padding: 12px; border-bottom: 1px solid #ddd; text-align: left; font-size: 20px;">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in order_detail %}
+            <tr>
+                <td style="padding: 12px; border-bottom: 1px solid #ddd; text-align: left; font-size: 20px;">{{item.product.product_name}}</td>
+                <td style="padding: 12px; border-bottom: 1px solid #ddd; text-align: left; font-size: 20px;">{{item.quantity}}</td>
+                <td style="padding: 12px; border-bottom: 1px solid #ddd; text-align: left; font-size: 20px;">Rs : {{item.product_price}}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <th colspan="2" class="text-right" style="padding: 12px; border-bottom: 1px solid #ddd; text-align: left; font-size: 20px;">Sub Total</th>
+                <th style="padding: 12px; border-bottom: 1px solid #ddd; text-align: left; font-size: 20px;">Rs : {{subtotal}}</th>
+            </tr>
+            <tr>
+                <th colspan="2" style="padding: 12px; border-bottom: 1px solid #ddd; text-align: left; font-size: 20px;">Tax</th>
+                <th style="padding: 12px; border-bottom: 1px solid #ddd; text-align: left; font-size: 20px;">Rs :{{order.tax}}</th>
+            </tr>
+            <tr>
+                <th colspan="2" style="padding: 12px; border-bottom: 1px solid #ddd; text-align: left; font-size: 20px;">Grand Total</th>
+                <th style="padding: 12px; border-bottom: 1px solid #ddd; text-align: left; font-size: 20px;">Rs : {{order.order_total}}</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <p style="font-size: 18px; margin-top: 20px;">Thank you for shopping with us! We hope to see you again soon.</p>
+
+    <center><a href="{% url 'home' %}" style="display: inline-block; background-color: #4CAF50; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 4px; transition: background-color 0.3s; margin-top: 20px; font-size: 20px;">Continue Shopping</a></center>
+
+</div>
+
+
+{% endblock %}
